@@ -1,0 +1,55 @@
+#include <iostream>
+#include <map>
+#include <string> /* komentarz nr 1   */
+#include <iterator>
+#include <cctype>
+/* komentarz nr 2 */
+using namespace std;
+
+int czesc(string s)
+{
+    cout <<"funkcja czesc" << endl;
+    cout << s << endl; /*sdfadfadfadfafadf
+    sdfasdfadfsdfa adfa ds  adf  * / */
+    return 1;
+}
+/*sdafsdafa*/
+int spadaj(string s)
+{
+    cout <<"funkcja spadaj" << endl;
+    cout << s << endl;
+    return 1;
+}
+
+/ * dsfadfa * /
+
+int main()
+{
+
+    map<string, int (*)(string) > polecenia;
+    map<string, int (*)(string) >::iterator it;
+*/
+    polecenia["czesc"] = &czesc;
+    polecenia["spadaj"] = &spadaj;
+/*
+    unsigned int ix = 0;
+  //  string calosc, bezarg;//// * * * /
+    getline(cin, calosc);
+*/
+    ix = calosc.find_first_of(' ');
+    bezarg = calosc.substr(0,ix);
+
+    it = polecenia.find(bezarg);
+    if(it != polecenia.end())
+        {
+            while(isspace(calosc[ix++])) {}
+            polecenia[bezarg](calosc.substr(ix-1,calosc.size()-(ix-1)));
+        }
+        else
+        {
+            cout << "Nie ma polecenia" << endl;
+        }
+
+    return 0;
+} /* asdf!@#$%^&*()_+?><:LPudiaf*** / */
+
